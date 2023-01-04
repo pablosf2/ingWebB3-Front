@@ -3,7 +3,7 @@ import { MensajeService } from '../services/mensaje.service';
 import {v4 as uuidv4} from 'uuid';
 import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from '../services/usuario.service';
-import { Mensaje } from '../models/Mensaje';
+import { Mensaje } from '../models/mensaje';
 
 @Component({
   selector: 'app-mensajes',
