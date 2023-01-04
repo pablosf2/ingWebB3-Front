@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<div class="container-xxl bd-gutter">
+  <div class="row align-items-md-stretch">
+    <div class="col-md-6 p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">{{vivienda.nombre}}</h1>
+        <p class="col-md-8 fs-4">{{reserva.fechaEntrada}} / {{reserva.fechaSalida}}</p>
+        <p>{{reserva.nPersonas}} personas</p>
+        <div class="d-grid gap-2 d-sm-flex mb-5">
+        <button class="btn btn-primary btn-lg" type="button" [routerLink]="['/modifyReserva', reserva.id]">Editar reserva</button>
+        <button class="btn btn-primary btn-lg" type="button" [routerLink]="['/chat', vivienda.propietario]">Chatear con el anfitrión</button>
+      </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 p-5 mb-4 bg-light rounded-3">
+      <div class="h-100 p-5 text-bg-dark rounded-3" style="background-repeat: no-repeat; background-image: url('{{getImageURL(vivienda.imagen)}}');" ></div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+

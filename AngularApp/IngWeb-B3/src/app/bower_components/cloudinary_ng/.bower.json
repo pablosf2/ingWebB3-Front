@@ -1,0 +1,61 @@
+{
+  "name": "cloudinary_ng",
+  "description": "A set of AngularJS directives/helpers for using Cloudinary with AngularJS",
+  "homepage": "https://github.com/cloudinary/cloudinary_angular",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "angularjs",
+    "jquery",
+    "file",
+    "image",
+    "media",
+    "cloud",
+    "upload",
+    "widget",
+    "multiple",
+    "selection",
+    "drag",
+    "drop",
+    "progress",
+    "preview",
+    "cross-domain",
+    "cross-site",
+    "chunk",
+    "resume",
+    "bootstrap"
+  ],
+  "dependencies": {
+    "cloudinary-core": "^2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cloudinary/cloudinary_angular.git"
+  },
+  "main": [
+    "index.js"
+  ],
+  "ignore": [
+    "**/*",
+    "!src/**/*.js",
+    "!src/**/*.js.map",
+    "!src/**/*.d.ts",
+    "!src/**/*.metadata.json",
+    "!index.js",
+    "!index.js.map",
+    "!index.d.ts",
+    "!index.metadata.json",
+    "!bower.json"
+  ],
+  "version": "1.5.3",
+  "_release": "1.5.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.5.3",
+    "commit": "0ea10be01997c1b84a0536468f5d42808bf3882b"
+  },
+  "_source": "https://github.com/cloudinary/cloudinary_angular.git",
+  "_target": "1.x",
+  "_originalSource": "cloudinary_ng",
+  "_direct": true
+}

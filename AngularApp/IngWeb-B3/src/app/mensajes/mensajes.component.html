@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Telook</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body class="bg-light">
+  <app-header></app-header>
+<div class="container">
+  <h3 class="fw-bold">{{destinatario.userName}}</h3>
+  <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white">
+    <div class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+
+    </div>
+    <div class="list-group list-group-flush border-bottom scrollarea">
+      <div class="list-group-item list-group-item-action py-3 lh-tight"
+           *ngFor="let msg of conversacion"
+      >
+        <div class="d-flex w-100 align-items-center justify-content-between">
+          <strong class="mb-1">{{msg.nombreRemitente}}</strong>
+        </div>
+        <div class="col-10 mb-1 small">{{msg.mensaje}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+  <input #mensaje type="text" value="" class="form-control px-4 me-sm-3" id="mensaje" aria-describedby="emailHelp" placeholder="Mensaje"
+  (keyup.enter)="sendMensaje(mensaje.value); mensaje.value=''">
+  <button type="submit" class="btn btn-secondary btn-lg px-4 " (click)="sendMensaje(mensaje.value); mensaje.value=''">Enviar</button>
+</div>
+</div>
+<app-footer></app-footer>

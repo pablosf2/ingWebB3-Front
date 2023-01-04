@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<div class="container-xxl bd-gutter">
+  <div class="row align-items-md-stretch">
+    <div class="col-md-6 p-5 mb-4 bg-light rounded-3">
+      <h4 class="display-5 fw-bold">{{ vivienda.nombre }}</h4>
+      <p class="col-md-8 fs-4">{{ vivienda.descripcion }}</p>
+      <p>{{ vivienda.localidad }}, {{ vivienda.provincia }}</p>
+      <p>Vivienda ofrecida por {{this.user.userName}}</p>
+      <h5>Desde <b>{{vivienda.precioNoche}}€</b> la noche</h5>
+      <button *ngIf="esPropietario"
+        class="btn btn-warning btn-lg"
+        type="button"
+        [routerLink]="['/modifyVivienda', vivienda.id]"
+      >
+        Editar Vivienda
+      </button>
+      <button *ngIf="puedeReservar"
+        style="margin: 15px"
+        class="btn btn-secondary btn-lg"
+        type="button"
+        [routerLink]="['/newReserva', vivienda.id]"
+      >
+        Hacer Reserva
+      </button>
+      <br />
+      <br />
+      <app-mapa
+        [latitud]="latitudVivienda"
+        [longitud]="longitudVivienda"
+      ></app-mapa>
+    </div>
+
+    <div class="col-md-6 p-5 mb-4 bg-light rounded-3">
+      <div
+        class="h-50 p-5 text-bg-dark rounded-3"
+        style="background-repeat: no-repeat; background-image: url('{{vivienda.imagen}}');"
+        [routerLink]="['/vivienda', vivienda.id]"
+      ></div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!esPropietario">
+<app-valoraciones [puedeValorar]="puedeValorar"></app-valoraciones></div>
+<app-footer></app-footer>

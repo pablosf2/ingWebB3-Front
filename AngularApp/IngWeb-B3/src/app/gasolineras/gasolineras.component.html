@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+  <div class="container-xxl bd-gutter" style="padding-right: 3rem; padding-left: 3rem;">
+    <div class="row align-items-md-stretch">
+      <h4 class="p-5 display-5 fw-bold" style="margin-bottom: 0px;">Gasolineras</h4>
+
+        <div class="col-md-6 bg-light rounded-3">
+          <div class="container-fluid">
+            <div class="form-group">
+                <p class="lead mb-4"><b>Busca por localidad: </b></p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                  <input #localidad type="text" value="" class="col form-control px-4 me-sm-3" id="localidad" aria-describedby="localidad" placeholder="Localidad">
+                  <button type="submit" class="col btn btn-secondary btn-lg px-4" (click)="getGasolinerasByLocalidad(localidad.value)">Buscar</button>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 bg-light rounded-3">
+          <div class="container-fluid">
+            <div class="form-group">
+                <p class="lead mb-4"><b>Busca por provincia: </b></p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                  <input #provincia type="text" value="" class="col form-control px-4 me-sm-3" id="provincia" aria-describedby="provincia" placeholder="Provincia">
+                  <button type="submit" class="col btn btn-secondary btn-lg px-4" (click)="getGasolinerasByProvincia(provincia.value)">Buscar</button>
+                </div>
+              </div>
+          </div>
+        </div>
+
+
+      <div class="row align-items-md-stretch">
+
+          <div class="col-md-6 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+              <p class="col-md-8 fs-4">{{feature.attributes.localidad}}, {{feature.attributes.provincia}}</p>
+              <p>{{this.direccion}}</p>
+              <p>{{this.feature.attributes.horario}}</p>
+              <br>
+              <br>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4 bg-light rounded-3">
+            <app-mapa [latitud]="latitudGasolinera" [longitud]="longitudGasolinera"></app-mapa>
+          </div>
+
+      </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<div class="container-xxl bd-gutter p-5 mb-4 bg-light rounded-3">
+  <h1 class="display-5 fw-bold">Nueva reserva</h1>
+  <form *ngIf="!reservaCorrecta"(ngSubmit)="checkReserva()" #forma="ngForm">
+      <div class="row align-items-md-stretch">
+        <div class="form-group col-md-6">
+          <label for="inputNombre">Fecha de entrada</label>
+          <input type="date" [(ngModel)]="newReserva.fechaEntrada" class="form-control" id="inputNombre" placeholder="Nombre" name="fechaEntrada" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputDescripcion">Fecha de salida</label>
+          <input type="date" [(ngModel)]="newReserva.fechaSalida" class="form-control" id="inputDescripcion" placeholder="Descripción" name="descripcion">
+        </div>
+      </div>
+        <div class="form-group">
+            <label for="inputLocalidad">Nº de personas</label>
+            <input type="number" [(ngModel)]="newReserva.nPersonas" class="form-control" id="inputLocalidad" required placeholder="Localidad" name="localidad" width="15">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-warning">Buscar Reserva</button>
+      </form>
+        <p>{{this.error}}</p>
+        <div *ngIf="reservaCorrecta" class="row align-items-md-stretch">
+          <div class="form-group">
+            <h3 style="color: darkgreen; align-self:center;">¡Reserva disponible!</h3>
+            <h3>Reservando para {{vivienda.nombre}}, {{this.dias}} noches para {{this.newReserva.nPersonas}} personas</h3>
+            <h5>Precio por noche: {{this.vivienda.precioNoche}}€</h5>
+            <h5>Noches: {{this.dias}}</h5>
+            <h4>Precio total: {{this.precio}}€</h4>
+            <app-paypal (recibo)="this.reciboPaypal($event)" (status)="this.estadoPaypal($event)" [precio]="this.precio"></app-paypal>
+            <p>Estado de pago: {{this.status}}</p>
+          </div>
+          <div *ngIf="reservaPagada">
+            <h1 style="color: darkgreen; align-self:center;">¡Reserva pagada! Gracias {{recibo.payer.name.given_name}}</h1>
+            <h3>Tome nota de los siguientes datos de compra</h3>
+            <p>Identificador de recibo: {{recibo.id}}</p>
+            <p>Hora de la compra (UTC): {{recibo.update_time}}</p>
+            <button (click)="irAReserva()">Ir a mi reserva</button>
+          </div>
+        </div >
+       
+</div>
+
+<app-footer></app-footer>

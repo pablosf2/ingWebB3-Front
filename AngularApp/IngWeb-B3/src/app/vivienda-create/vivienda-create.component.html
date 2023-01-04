@@ -1,0 +1,61 @@
+<app-header></app-header>
+
+<div class="container-xxl bd-gutter p-5 mb-4 bg-light rounded-3">
+    <h1 class="display-5 fw-bold">Nueva vivienda</h1>
+    <form (ngSubmit)="createVivienda()" #forma="ngForm">
+        <div class="row align-items-md-stretch">
+            <div class="form-group col-md-6">
+            <label for="inputNombre">Nombre</label>
+            <input type="text" [(ngModel)]="newVivienda.nombre" class="form-control" id="inputNombre" placeholder="Nombre" name="nombre" required>
+            </div>
+            <div class="form-group col-md-6">
+            <label for="inputDescripcion">Descripción</label>
+            <input type="Descripcion" [(ngModel)]="newVivienda.descripcion" class="form-control" id="inputDescripcion" placeholder="Descripción" name="descripcion">
+            </div>
+        </div>
+        <div class="row align-items-md-stretch">
+            <div class="form-group col-md-6">
+            <label for="inputLocalidad">Localidad</label>
+            <input type="text" [(ngModel)]="newVivienda.localidad" class="form-control" id="inputLocalidad" required placeholder="Localidad" name="localidad">
+            </div>
+            <div class="form-group col-md-6">
+            <label for="inputProvincia">Provincia</label>
+                <select name="provincia" id="inputProvincia" class="form-control"  required placeholder="Provincia" [(ngModel)]="newVivienda.provincia">
+                    <option [value]="item" *ngFor="let item of lista">{{item}}</option>
+                </select>
+            </div>
+        </div>
+            <!-- <input type="text" [(ngModel)]="newVivienda.provincia" class="form-control" id="inputProvincia" placeholder="Provincia" required name="provincia"> -->
+        <div class="row align-items-md-stretch">
+            <div class="form-group col-md-6">
+                <label for="inputUbicacion">Calle</label>
+                <input type="text" [(ngModel)]="newVivienda.calle" class="form-control" (change)="actualizarMapa()" [(ngModel)]="calle" [ngModelOptions]="{standalone: true}" id="inputUbicacion">
+            </div>
+            <div class="form-group col-md-4">
+            <label for="inputCompleta">Tipo</label>
+            <input type="text" [(ngModel)]="newVivienda.tipo" id="inputCompleta" class="form-control" required name="tipo">
+            </div>
+            <div class="form-group col-md-2">
+            <label for="inputImagen">Imagen</label>
+            <input (change)="capturarFile($event!)" type="file">
+            </div>
+        </div>
+        <br>
+        <div><app-mapa [latitud]="lat" [longitud]="lon"></app-mapa></div>
+        <br>
+        <div class="row align-items-md-stretch">
+            <div class="form-group col-md-2">
+                <div class="form-check">
+                <input required [(ngModel)]="newVivienda.viviendaCompleta" class="form-check-input" type="checkbox" id="gridCompleta" name="completa">
+                <label class="form-check-label" for="gridCompleta">
+                    Completa
+                </label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-warning">Crear vivienda</button>
+    </form>
+</div>
+
+<app-footer></app-footer>
