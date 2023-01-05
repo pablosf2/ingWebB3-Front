@@ -104,7 +104,6 @@
       }
     }
   },
-  "defaultProject": "IngWeb-B3",
   "cli": {
     "analytics": false
   }
