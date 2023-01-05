@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4401",
-    "build": "ng build",
+    "build": "ng build --force",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -28,7 +28,6 @@
     "@material/card": "^14.0.0",
     "@types/gapi.auth2": "^0.0.56",
     "@types/google-one-tap": "^1.2.2",
-    "angularx-social-login": "^4.1.0",
     "axios": "^1.2.1",
     "ng2-file-upload": "^1.4.0",
     "ngx-paypal": "^9.0.0",
